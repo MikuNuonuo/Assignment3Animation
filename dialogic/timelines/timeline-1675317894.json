@@ -1,0 +1,39 @@
+{
+	"events": [
+		{
+			"character": "character-1675317845.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello, What can I do for you? :)"
+		},
+		{
+			"character": "character-1675320641.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Do you know where is doctor Jack?"
+		},
+		{
+			"character": "character-1675317845.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sure, He is in the south room."
+		},
+		{
+			"character": "character-1675320641.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Thank you!"
+		},
+		{
+			"character": "character-1675317845.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Welcome."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1675317894.json",
+		"name": "timeline-1"
+	}
+}
