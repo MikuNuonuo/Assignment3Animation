@@ -21,4 +21,4 @@ func _on_Door_Animation_animation_finished(anim_name):
 		block.disabled == true
 		get_tree().change_scene("res://Scenes/DemoLevel2.tscn")		
 	elif anim_name == "Open" and  Scene == "MainLevel2":
-		get_tree().change_scene("res://Scenes/MainMenu.tscn")
+		get_tree().change_scene("res://Scenes/Win.tscn")

@@ -13,3 +13,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_SettingMenu_button_up():
+	$CanvasLayer/MainMenu.show()
+
+
+func _on_Restart_pressed():
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+
+
+
