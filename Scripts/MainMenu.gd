@@ -6,9 +6,6 @@ onready var level = $Level
 onready var ThanksName = $ThanksName
 
 
-func _transfer_data_between_scenes(old_scene, new_scene):
-	pass
-
 func _on_Start_pressed():
 	toggle()
 	get_tree().change_scene("res://Scenes/DemoLevel.tscn")

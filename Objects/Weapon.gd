@@ -10,21 +10,14 @@ extends KinematicBody2D
 func _ready():
 	pass # Replace with function body.
 
-
+func _on_Area2D_body_entered(body):
+	if "Player" in body.name:	
+		emit_signal("pickUp")	
+		$Collect.play()
+		Music.isWeapon = 1 #SW tracking whether picked up a weapon 
+		yield(get_tree().create_timer(0.1),"timeout")
+		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-	
-
-func _on_Area2D2_body_entered(body):
-	if "Player" in body.name and Music.state == 1: #SW, only when player in attack state will trigger this 
-			print("xx")
-			$HitMusic.play()
-			queue_free()
-			
-			
-
-	

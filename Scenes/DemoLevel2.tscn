@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Imports/Laboratory.tres" type="TileSet" id=1]
 [ext_resource path="res://Objects/Door.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Objects/HealthPotion.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/SpeedPotion.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Weapon.tscn" type="PackedScene" id=14]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 5 )
@@ -117,6 +118,9 @@ position = Vector2( 272, 191 )
 [node name="HealthPotion3" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 178, 44 )
 
+[node name="Weapon" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 287, 81 )
+
 [node name="NPC" type="Area2D" parent="."]
 script = ExtResource( 7 )
 
@@ -125,7 +129,6 @@ modulate = Color( 0.705882, 0, 0, 1 )
 position = Vector2( 80, 59 )
 frames = SubResource( 5 )
 animation = "Idol"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]

@@ -25,7 +25,7 @@ func _ready():
 			#$AudioStreamPlayer2D.play()
 	
 
-func get_input():
+func get_input(): #SW, player movement
 	velocity = Vector2()
 	if Input.is_action_pressed("right"):
 		velocity.x += 1
@@ -39,23 +39,30 @@ func get_input():
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
 		anim.play("RunUp")
-	if Input.is_action_just_pressed("space"): #player use space to attack
+	if Input.is_action_just_pressed("space") && Music.isWeapon == 1: #SW, player use space to attack (only when havepicked up a weapon)
 		print("m")
-		Music.state = 1
-		#anim.play("Attack")
-		if $PlayerSprites.animation == "RunUp":
+		#SW, check animation direction
+		if $PlayerSprites.animation == "RunUp": 
 			anim.play("AttackUp")
+			Music.state = 1
+			yield(get_tree().create_timer(2),"timeout")
+			Music.state = 0
 		elif $PlayerSprites.animation == "RunLeft":
 			anim.play("AttackLeft")
+			Music.state = 1
+			yield(get_tree().create_timer(2),"timeout")
+			Music.state = 0
 		elif $PlayerSprites.animation == "Run":
 			anim.play("Attack")
+			Music.state = 1
+			yield(get_tree().create_timer(2),"timeout")
+			Music.state = 0
 		elif $PlayerSprites.animation == "RunRight":
 			anim.play("AttackRight")
-	if Input.is_action_just_released("space"):
-		yield(get_tree().create_timer(0.5),"timeout")
-		Music.state = 0
-
-		
+			Music.state = 1
+			yield(get_tree().create_timer(2),"timeout")
+			Music.state = 0
+				
 	velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
@@ -70,21 +77,18 @@ func take_damage(amount): #SW if health = 0, game will reload
 		can_move = false
 		anim.play("die")
 		$DieMusic.play()
-		$Lose.show()
-		
-		#get_tree().reload_current_scene()
+		$Lose.show()		
 	emit_signal("health_change", health) #SW
 
 func _on_Area2D_body_entered(body):
 	if "Enemy" in body.name:
-		take_damage(1) #SW
-		
+		take_damage(1) #SW		
 	if "HealthPotion" in body.name:
 		take_damage(-1) #SW
 	if "SpeedPotion" in body.name:
-		speed = 500
+		speed = 500 #SW 
 		yield(get_tree().create_timer(3),"timeout")
-		speed = 200
+		speed = 200 #SW
 	
 	
 		
